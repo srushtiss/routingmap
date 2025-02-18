@@ -29,7 +29,7 @@ const RealTimeRouting = () => {
     } else {
       console.error("Geolocation is not supported by this browser.");
     }
-  }, []);
+  }, [setCurrLocation]);
 
   const getRoute = async (destination) => {
     const url = `https://router.project-osrm.org/route/v1/driving/${currLocation[1]},${currLocation[0]};${destination[1]},${destination[0]}?overview=full&geometries=geojson`
@@ -61,7 +61,7 @@ const RealTimeRouting = () => {
     const map = useMap();
     useEffect(() => {
       map.setView(currLocation, 10);
-    }, [currLocation, map]);
+    }, [ map]);
     return null;
   }
 
